@@ -16,6 +16,13 @@ body.dark-mode {
     color: #f7f8fc;
 }
 
+/* Dark mode heading and paragraph colors */
+body.dark-mode h1, 
+body.dark-mode .contact-info h3,
+body.dark-mode p {
+    color: #f7f8fc; /* Ensure headings and p are white */
+}
+
 /* Navbar */
 .navbar {
     background-color: #343a40;
@@ -57,6 +64,7 @@ h1 {
     font-family: 'Lora', serif;
     color: #333;
     margin-bottom: 2rem;
+    font-weight: 700; /* Bold for h1 */
 }
 
 .contact-box {
@@ -64,6 +72,7 @@ h1 {
     justify-content: space-between; /* Ensure there's space between text and map */
     align-items: flex-start; /* Align both sections to the top */
     gap: 2rem; /* Adds space between the left and right sections */
+    font-family: 'Lora', serif;
 }
 
 .contact-info {
@@ -76,7 +85,7 @@ h1 {
     font-size: 1.8rem;
     color: #333;
     margin-bottom: 1rem;
-    font-weight: 500;
+    font-weight: 700; /* Bold for h3 */
 }
 
 .contact-info p {
@@ -107,6 +116,21 @@ iframe {
     text-align: center;
     padding: 20px;
     margin-top: 2rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Ensure content takes up full height */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Sticky Footer: Ensuring footer stays at the bottom */
+footer {
+    margin-top: auto; /* Ensure footer stays at the bottom */
 }
 
 /* Make map responsive: Adjust height for smaller screens */
@@ -116,7 +140,24 @@ iframe {
         gap: 1rem; /* Reduce the gap between the sections */
     }
 
+    .contact-info {
+        max-width: 100%; /* Make the text section take full width */
+    }
+
     .map-container {
-        height: 300px; /* Adjust map height on smaller screens */
+        height: 600px; /* Increase map height on smaller screens */
+        max-width: 100%; /* Ensure the map takes full width */
+    }
+
+    h1 {
+        font-size: 2rem; /* Smaller title size on mobile */
+    }
+
+    .contact-info h3 {
+        font-size: 1.5rem; /* Adjust heading size */
+    }
+
+    .contact-info p {
+        font-size: 1rem; /* Reduce paragraph text size */
     }
 }

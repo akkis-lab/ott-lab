@@ -1,6 +1,6 @@
 /* General Body Styles */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Lora', sans-serif;
     background: linear-gradient(135deg, #e3f2fd, #bbdefb);
     color: #333;
     margin: 0;
@@ -11,15 +11,26 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+/* Dark Mode Styles */
 body.dark-mode {
     background: linear-gradient(135deg, #2c3e50, #34495e);
-    color: #f7f8fc;
+    color: #f7f8fc; /* Ensure all text becomes white in dark mode */
+}
+
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode p, 
+body.dark-mode .box h3, 
+body.dark-mode .box p, 
+body.dark-mode .accordion-body {
+    color: #f7f8fc; /* Apply white text color across all text in dark mode */
 }
 
 /* Navbar */
 .navbar {
     background-color: #343a40;
     padding: 1rem 2rem;
+    font-family: 'roboto', sans-serif;
 }
 
 .navbar .navbar-brand img {
@@ -55,6 +66,7 @@ h1 {
     font-size: 2.5rem;
     text-align: center;
     font-family: 'Lora', serif;
+    font-weight: 600;
     color: #333;
     margin-bottom: 2rem;
 }
@@ -63,6 +75,7 @@ h2 {
     font-size: 1.8rem;
     color: #333;
     margin-top: 1.5rem;
+    font-weight: 550;
 }
 
 p {
@@ -74,7 +87,7 @@ p {
 }
 
 .highlight {
-    color: #f39c12;
+    color: #d54e0a;
     font-weight: bold;
 }
 
@@ -103,7 +116,7 @@ p {
 }
 
 .accordion-button:not(.collapsed) {
-    background-color: #f39c12;
+    background-color: #d54e0a;
     color: white;
 }
 
@@ -122,16 +135,22 @@ p {
 .accordion-body {
     padding: 1.5rem;
     background-color: #e3f2fd; /* Light color for light mode */
-    color: #252525;
+    color: #252525; /* Default text color */
 }
 
+/* Ensure that accordion text is readable in dark mode */
 body.dark-mode .accordion-body {
     background-color: #34495e; /* Dark color for dark mode */
-    color: #f7f8fc;
+    color: #f7f8fc; /* White text for dark mode */
 }
 
 body.dark-mode .accordion-header {
     background-color: #2c3e50; /* Dark background for accordion header in dark mode */
+}
+
+/* To fix visibility of the text even in collapsed state */
+body.dark-mode .accordion-button {
+    color: #f7f8fc; /* Make button text white in dark mode */
 }
 
 .accordion-body img {
@@ -143,11 +162,24 @@ body.dark-mode .accordion-header {
 /* Footer */
 .footer {
     background-color: #343a40;
-    color: white;
-    text-align: center;
+    color: white;  /* Ensure footer text is always white */
+    text-align: center;  /* Center the text */
     padding: 20px;
     margin-top: 2rem;
+    font-family: 'roboto', sans-serif;
+    width: 100%;  /* Ensure the footer spans the full width */
+    position: relative; /* Ensure it's positioned correctly in the layout */
 }
+
+#foot{
+    color: #f7f8fc;
+}
+
+.footer p {
+    margin: 0;
+    text-align: center;  /* Ensure the paragraph text is centered */
+}
+
 
 /* Make the layout responsive: Stack sections vertically on smaller screens */
 @media (max-width: 768px) {

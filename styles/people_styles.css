@@ -77,8 +77,9 @@ body.dark-mode {
     height: 100%;
     object-fit: contain;
     position: absolute;
-    top: 50px;
-    transform: scale(1.4); /* Scale the image to "zoom in" */
+    top: 70px;
+    left: 0px;
+    transform: scale(1.5); /* Scale the image to "zoom in" */
     transform-origin: center center; /* Ensure it scales from the center */
 }
 
@@ -98,13 +99,36 @@ body.dark-mode .pi-box {
     color: #f7f8fc;
 }
 
+/* Principal Investigator Container (Left and Right side layout) */
+.pi-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping for smaller devices */
+    gap: 2rem; /* Space between the left and right sections */
+}
+
+/* Left Section - Photo and Bio */
+.pi-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Right Section - Education and Experience */
+.pi-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 /* Header inside PI box */
-.pi-box h2,
-.pi-box h3 {
+.pi-box h3,h4 {
     text-align: center;
     font-family: 'Lora', serif;
     font-weight: 700;
-    margin-top: 0; /* Reduced margin-top to decrease the space between the box and the heading */
 }
 
 /* Text inside PI box */
@@ -126,6 +150,14 @@ body.dark-mode .pi-box ul {
 /* Education and Experience Lists */
 .pi-box ul {
     margin-left: 0.5rem;
+}
+
+/* Honors and Awards Styling */
+.pi-box h4 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    text-align: justify;
 }
 
 .pi-box li {
