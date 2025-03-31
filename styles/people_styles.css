@@ -114,6 +114,8 @@ body.dark-mode .pi-box {
     align-items: center;
     justify-content: center;
     text-align: center;
+    margin-top: -5rem;
+    margin-right: 1.5rem;
 }
 
 /* Right Section - Education and Experience */
@@ -279,6 +281,10 @@ body.dark-mode .profile-card .info p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .pi-left {
+        margin-top: -1.8rem;
+    }
+
     .profile-card {
         padding: 0.5rem;
         height: auto;

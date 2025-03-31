@@ -95,6 +95,10 @@ h1 {
     text-align: left;
 }
 
+.container{
+    flex: 1;
+}
+
 /* Make map container square */
 .map-container {
     flex: 1; /* Allow the map container to take up available space */
@@ -125,7 +129,6 @@ iframe {
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
 /* Sticky Footer: Ensuring footer stays at the bottom */
