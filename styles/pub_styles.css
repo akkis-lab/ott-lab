@@ -150,7 +150,7 @@ body.dark-mode .info ul li {
     }
 
     .journal-images {
-        margin-left: -2rem;
+        margin-left: 1rem;
         justify-content: center;
     }
 }
@@ -163,8 +163,8 @@ body.dark-mode .info ul li {
     width: 100%;
     height: 200px;
     margin-bottom: 45px;
-    margin-top: -50px;
-    margin-left: 5rem;
+    margin-top: -40px;
+    margin-left: 2rem;
 }
 
 .journal-images img {
