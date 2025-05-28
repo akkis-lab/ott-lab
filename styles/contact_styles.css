@@ -117,12 +117,32 @@ iframe {
 .footer {
     background-color: #343a40;
     color: white;
-    text-align: center;
     padding: 20px;
     margin-top: 2rem;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center; /* Ensures center alignment in the middle section */
+    flex-wrap: wrap; /* Allows stacking on small screens */
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    flex: 1;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.footer p {
+    margin: 0;
 }
 
 /* Ensure content takes up full height */
@@ -134,6 +154,17 @@ body {
 /* Sticky Footer: Ensuring footer stays at the bottom */
 footer {
     margin-top: auto; /* Ensure footer stays at the bottom */
+}
+
+.logo-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.logo-container img {
+    width: 120px;
+    height: auto;
 }
 
 /* Make map responsive: Adjust height for smaller screens */

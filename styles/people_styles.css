@@ -120,6 +120,7 @@ body.dark-mode .pi-box {
 
 /* Right Section - Education and Experience */
 .pi-right {
+    margin-top: -2rem;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -169,7 +170,7 @@ body.dark-mode .pi-box ul {
 /* Profile Grid Layout */
 .profile-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Set exactly 5 equal-width columns */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* change the 220px value here to change the no. of profile cards in a single line */
     gap: 1rem;
     margin: 0.5rem;
 }
@@ -266,17 +267,77 @@ body.dark-mode .profile-card .info p {
     color: #00a6ff;
 }
 
+body.dark-mode .linkedin-icon {
+    color: #1da1f2;
+}
+
+body.dark-mode .linkedin-icon:hover {
+    color: #66ccff;
+}
+
 /* Footer */
 .footer {
     background-color: #343a40;
     color: white;
-    text-align: center;
     padding: 20px;
-    margin-top: auto;
+    margin-top: 2rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center; /* Ensures center alignment in the middle section */
+    flex-wrap: wrap; /* Allows stacking on small screens */
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    flex: 1;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.footer-right {
+    text-align: right;
 }
 
 .footer p {
     margin: 0;
+}
+
+.logo-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.logo-container img {
+    width: 120px;
+    height: auto;
+}
+
+/* Alumni Card Specific Styling */
+.profile-card-alumni {
+    width: 300px;
+    padding: 0.8rem;
+    font-size: 0.95rem;
+    align-self: center;
+}
+
+/* Optional: Alumni grid for consistent layout */
+.alumni-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* Dark Mode for Alumni Cards */
+body.dark-mode .profile-card-alumni {
+    background: #34495e;
+    color: #f7f8fc;
 }
 
 /* Responsive Design */

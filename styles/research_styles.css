@@ -33,11 +33,6 @@ body.dark-mode .accordion-body {
     font-family: 'roboto', sans-serif;
 }
 
-.navbar .navbar-brand img {
-    width: 150px;
-    height: 60px;
-}
-
 .navbar-nav .nav-link {
     color: #f8f9fa !important;
     font-size: 1.1rem;
@@ -116,7 +111,7 @@ p {
 }
 
 .accordion-button:not(.collapsed) {
-    background-color: #d54e0a;
+    background-color: #ee8754;
     color: white;
 }
 
@@ -162,17 +157,29 @@ body.dark-mode .accordion-button {
 /* Footer */
 .footer {
     background-color: #343a40;
-    color: white;  /* Ensure footer text is always white */
-    text-align: center;  /* Center the text */
+    color: white;
     padding: 20px;
     margin-top: 2rem;
-    font-family: 'roboto', sans-serif;
-    width: 100%;  /* Ensure the footer spans the full width */
-    position: relative; /* Ensure it's positioned correctly in the layout */
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center; /* Ensures center alignment in the middle section */
+    flex-wrap: wrap; /* Allows stacking on small screens */
 }
 
-#foot{
-    color: #f7f8fc;
+.footer-left,
+.footer-center,
+.footer-right {
+    flex: 1;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.footer-right {
+    text-align: right;
 }
 
 .footer p {
@@ -180,6 +187,16 @@ body.dark-mode .accordion-button {
     text-align: center;  /* Ensure the paragraph text is centered */
 }
 
+.logo-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.logo-container img {
+    width: 120px;
+    height: auto;
+}
 
 /* Make the layout responsive: Stack sections vertically on smaller screens */
 @media (max-width: 768px) {
@@ -190,4 +207,8 @@ body.dark-mode .accordion-button {
     .accordion-body {
         padding: 1rem;
     }
+}
+
+.footer p {
+    color: white !important;
 }

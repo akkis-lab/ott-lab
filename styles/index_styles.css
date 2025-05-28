@@ -174,9 +174,28 @@ body.dark-mode #header {
 .footer {
     background-color: #343a40;
     color: white;
-    text-align: center;
     padding: 20px;
     margin-top: 2rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center; /* Ensures center alignment in the middle section */
+    flex-wrap: wrap; /* Allows stacking on small screens */
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    flex: 1;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.footer-right {
+    text-align: right;
 }
 
 .footer p {
@@ -247,6 +266,17 @@ h1 {
     height: auto; /* Allow height to adjust based on aspect ratio */
     object-fit: contain; /* Change to contain to fit the image without cropping */
     transform: scale(1.05); /* Scale down the image to zoom out */
+}
+
+.logo-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.logo-container img {
+    width: 120px;
+    height: auto;
 }
 
 /* Responsive Design */
