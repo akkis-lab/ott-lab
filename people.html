@@ -8,6 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/people_styles.css">
+    <link rel="icon" type="image/png" href="images/sscf_logo.png">
 </head>
 <body>
 
@@ -33,9 +34,13 @@
                 <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 <li class="nav-item">
-                    <div class="dark-mode-switch" id="darkModeToggle">
-                        <i class="fas fa-sun" id="sunIcon"></i>
-                        <i class="fas fa-moon" id="moonIcon" style="display: none;"></i>
+                    <div class="dark-mode-container">
+                        <i class="fas fa-moon moon-icon"></i>
+                        <label class="switch" id="darkModeToggle">
+                            <input type="checkbox" id="darkModeCheckbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <i class="fas fa-sun sun-icon"></i>
                     </div>
                 </li>
             </ul>
@@ -83,7 +88,7 @@
                         <li>Third Prize for the Oral Presentation in 3rd International Conference for Cancer Metabolism and Treatment, Shanghai</li>
                         <li>Best Research Presentation Award in the 3rd International Electronic Conference on Cancers (IECC2023) </li>
                         <li>Member-European Society For Medical Oncology (ESMO ID: 685508)</li>
-                        <li>Member-International Association for the Study of Lung Cancer (ID: Coming soon!!!)</li>
+                        <li>Member-International Association for the Study of Lung Cancer (IASLC ID: 551151)</li>
                     </ul>
                 </div>
             </div>
@@ -261,23 +266,16 @@
         }
 
         // Dark Mode Toggle Logic
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const sunIcon = document.getElementById('sunIcon');
-        const moonIcon = document.getElementById('moonIcon');
+        const darkModeCheckbox = document.getElementById('darkModeCheckbox');
 
         function setDarkMode(isDark) {
             if (isDark) {
                 document.body.classList.add('dark-mode');
-                if (sunIcon && moonIcon) {
-                    sunIcon.style.display = 'none';
-                    moonIcon.style.display = 'inline-block';
-                }
             } else {
                 document.body.classList.remove('dark-mode');
-                if (sunIcon && moonIcon) {
-                    sunIcon.style.display = 'inline-block';
-                    moonIcon.style.display = 'none';
-                }
+            }
+            if (darkModeCheckbox) {
+                darkModeCheckbox.checked = isDark;
             }
         }
 
@@ -285,20 +283,17 @@
         const darkModePreference = getDarkModePreference();
         if (darkModePreference === 'true') {
             setDarkMode(true);
+        } else {
+            setDarkMode(false); // Ensure the checkbox reflects the initial state
         }
 
         // Listener for toggle
-        sunIcon.addEventListener('click', function (e) {
-            e.stopPropagation();
-            setDarkMode(true);
-            setDarkModePreference('true');
-        });
-
-        moonIcon.addEventListener('click', function (e) {
-            e.stopPropagation();
-            setDarkMode(false);
-            setDarkModePreference('false');
-        });
+        if (darkModeCheckbox) {
+            darkModeCheckbox.addEventListener('change', function () {
+                setDarkMode(this.checked);
+                setDarkModePreference(this.checked ? 'true' : 'false');
+            });
+        }
 
     </script>
 </body>
