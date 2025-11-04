@@ -159,8 +159,8 @@ body.dark-mode .contact-info p {
     padding: 20px;
     margin-top: auto;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center horizontally */
     text-align: center;
     font-size: 0.9rem;
 }
@@ -177,5 +177,12 @@ body.dark-mode .footer {
 @media (max-width: 768px) {
     .contact-box {
         flex-direction: column;
+        padding: 1.5rem;
+    }
+    h1 {
+        font-size: 2.2rem;
+    }
+    h3 {
+        font-size: 1.5rem;
     }
 }

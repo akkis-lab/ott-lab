@@ -83,6 +83,7 @@
                         <li>Third Prize for the Oral Presentation in 3rd International Conference for Cancer Metabolism and Treatment, Shanghai</li>
                         <li>Best Research Presentation Award in the 3rd International Electronic Conference on Cancers (IECC2023) </li>
                         <li>Member-European Society For Medical Oncology (ESMO ID: 685508)</li>
+                        <li>Member-International Association for the Study of Lung Cancer (ID: Coming soon!!!)</li>
                     </ul>
                 </div>
             </div>
@@ -157,6 +158,16 @@
                 </div>
                 <a href="https://www.linkedin.com/in/nawaneetan-sriraman/"target="_blank" class="linkedin-icon"><i class="fab fa-linkedin"></i></a>
             </div>
+            <div class="profile-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="photo">
+                    <img src="images/shambhavi1.jpg" alt="Shambhavi">
+                </div>
+                <div class="info">
+                    <h2>Shambhavi</h2>
+                    <p><em>Research Intern</em></p>
+                </div>
+                <a href="" target="_blank" class="linkedin-icon"><i class="fab fa-linkedin"></i></a>
+            </div>
         </div>    
 
         <!-- Alumni Section -->
@@ -222,14 +233,12 @@
 
     <!-- Footer -->
     <div class="footer">
-        <div class="footer-left"></div> <!-- Empty for spacing balance -->
         <div class="footer-center">
-            <p>&copy; 2025 Akki's Lab. All rights reserved.</p>
-        </div>
-        <div class="footer-right">
-            <p>Developed and maintained by Guruguhan & Rithika</p>
-        </div>
-    </div>
+                    <p>&copy; 2025 Akki's Lab. All rights reserved.</p>
+                </div>
+                <div class="footer-right">
+                    <p>Developed and maintained by Guruguhan, Rithika & Nawaneetan</p>
+                </div>    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -242,20 +251,13 @@
             mirror: false
         });
 
-        // Dark Mode Cookie Functions
-        function setDarkModeCookie(value) {
-            document.cookie = "darkMode=" + value + "; path=/; max-age=31536000";
+        // Dark Mode Functions
+        function setDarkModePreference(value) {
+            localStorage.setItem('darkMode', value);
         }
 
-        function getDarkModeCookie() {
-            const cookieArr = document.cookie.split(';');
-            for (let i = 0; i < cookieArr.length; i++) {
-                let cookie = cookieArr[i].trim();
-                if (cookie.indexOf('darkMode=') === 0) {
-                    return cookie.substring('darkMode='.length, cookie.length);
-                }
-            }
-            return null;
+        function getDarkModePreference() {
+            return localStorage.getItem('darkMode');
         }
 
         // Dark Mode Toggle Logic
@@ -266,27 +268,38 @@
         function setDarkMode(isDark) {
             if (isDark) {
                 document.body.classList.add('dark-mode');
-                sunIcon.style.display = 'none';
-                moonIcon.style.display = 'inline-block';
+                if (sunIcon && moonIcon) {
+                    sunIcon.style.display = 'none';
+                    moonIcon.style.display = 'inline-block';
+                }
             } else {
                 document.body.classList.remove('dark-mode');
-                sunIcon.style.display = 'inline-block';
-                moonIcon.style.display = 'none';
+                if (sunIcon && moonIcon) {
+                    sunIcon.style.display = 'inline-block';
+                    moonIcon.style.display = 'none';
+                }
             }
         }
 
         // Set initial dark mode state
-        const darkModePreference = getDarkModeCookie();
+        const darkModePreference = getDarkModePreference();
         if (darkModePreference === 'true') {
             setDarkMode(true);
         }
 
         // Listener for toggle
-        darkModeToggle.addEventListener('click', function () {
-            const isDarkMode = !document.body.classList.contains('dark-mode');
-            setDarkMode(isDarkMode);
-            setDarkModeCookie(isDarkMode.toString());
+        sunIcon.addEventListener('click', function (e) {
+            e.stopPropagation();
+            setDarkMode(true);
+            setDarkModePreference('true');
         });
+
+        moonIcon.addEventListener('click', function (e) {
+            e.stopPropagation();
+            setDarkMode(false);
+            setDarkModePreference('false');
+        });
+
     </script>
 </body>
 </html>

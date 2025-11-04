@@ -43,7 +43,9 @@
     </nav>
 
     <!-- Title below Navbar -->
-    <br><h1 id="header" data-aos="fade-down">Omics-To-Therapy (OTT) Group</h1>
+    <div class="header-container" data-aos="fade-down">
+        <h1 id="header">Omics-To-Therapy (OTT) Group</h1>
+    </div>
 
     <!-- Main Content -->
     <div class="content-container">
@@ -70,7 +72,7 @@
         <h2 id="header">Fundings</h2><br>
         <div class="funding-images">
             <div class="funding-image-placeholder" data-aos="fade-up" data-aos-delay="100">
-                <a href="https://www.anrfonline.in/ANRF/HomePage"><img src="images/anrf1.png" alt="Funding 1"></a>
+                <a href="https://www.anrfonline.in/ANRF/HomePage"><img src="images/anrf2.jpeg" alt="Funding 1"></a>
             </div>
             <div class="funding-image-placeholder" data-aos="fade-up" data-aos-delay="200">
                 <a href="https://www.shankaracancerfoundation.org/"><img src="images/sscf_logo.png" alt="Funding 2"></a>
@@ -78,17 +80,29 @@
             <div class="funding-image-placeholder" data-aos="fade-up" data-aos-delay="300">
                 <img src="images/megh_steels.png" alt="Funding 3">
             </div>
+            <div class="funding-image-placeholder" data-aos="fade-up" data-aos-delay="300">
+                <a href="https://www.icmr.gov.in/"><img src="images/icmr.svg" alt="Funding 4"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Collaborators Section -->
+    <div class="collaborators-section mt-5" data-aos="fade-up">
+        <h2 id="header">Collaborators</h2><br>
+        <div class="collaborator-names">
+            <p>Collaborator 1</p>
+            <p>Collaborator 2</p>
+            <p>Collaborator 3</p>
         </div>
     </div>
 
     <!-- Footer -->
     <div class="footer">
-        <div class="footer-left"></div> <!-- Empty for spacing balance -->
         <div class="footer-center">
             <p>&copy; 2025 Akki's Lab. All rights reserved.</p>
         </div>
         <div class="footer-right">
-            <p>Developed and maintained by Guruguhan & Rithika</p>
+            <p>Developed and maintained by Guruguhan, Rithika & Nawaneetan</p>
         </div>
     </div>
 
@@ -104,20 +118,13 @@
             mirror: false
         });
 
-        // Dark Mode Cookie Functions
-        function setDarkModeCookie(value) {
-            document.cookie = "darkMode=" + value + "; path=/; max-age=31536000";
+        // Dark Mode Functions
+        function setDarkModePreference(value) {
+            localStorage.setItem('darkMode', value);
         }
 
-        function getDarkModeCookie() {
-            const cookieArr = document.cookie.split(';');
-            for (let i = 0; i < cookieArr.length; i++) {
-                let cookie = cookieArr[i].trim();
-                if (cookie.indexOf('darkMode=') === 0) {
-                    return cookie.substring('darkMode='.length, cookie.length);
-                }
-            }
-            return null;
+        function getDarkModePreference() {
+            return localStorage.getItem('darkMode');
         }
 
         // Dark Mode Toggle Logic
@@ -128,27 +135,39 @@
         function setDarkMode(isDark) {
             if (isDark) {
                 document.body.classList.add('dark-mode');
-                sunIcon.style.display = 'none';
-                moonIcon.style.display = 'inline-block';
+                if (sunIcon && moonIcon) {
+                    sunIcon.style.display = 'none';
+                    moonIcon.style.display = 'inline-block';
+                }
             } else {
                 document.body.classList.remove('dark-mode');
-                sunIcon.style.display = 'inline-block';
-                moonIcon.style.display = 'none';
+                if (sunIcon && moonIcon) {
+                    sunIcon.style.display = 'inline-block';
+                    moonIcon.style.display = 'none';
+                }
             }
         }
 
         // Set initial dark mode state
-        const darkModePreference = getDarkModeCookie();
+        const darkModePreference = getDarkModePreference();
         if (darkModePreference === 'true') {
             setDarkMode(true);
         }
 
         // Listener for toggle
-        darkModeToggle.addEventListener('click', function () {
-            const isDarkMode = !document.body.classList.contains('dark-mode');
-            setDarkMode(isDarkMode);
-            setDarkModeCookie(isDarkMode.toString());
+        sunIcon.addEventListener('click', function (e) {
+            e.stopPropagation();
+            setDarkMode(true);
+            setDarkModePreference('true');
         });
+
+        moonIcon.addEventListener('click', function (e) {
+            e.stopPropagation();
+            setDarkMode(false);
+            setDarkModePreference('false');
+        });
+
+
 
         // Tag Cloud Setup
         const words = [
