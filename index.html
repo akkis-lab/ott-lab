@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akki's Lab</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/index_styles.css">
 </head>
 <body>
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="index.html">
             <div class="logo-container">
                 <img src="images/sscf_logo.png" alt="Logo 1">
@@ -25,10 +25,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="people.html">People</a></li>
                 <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
                 <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 <li class="nav-item">
                     <div class="dark-mode-switch" id="darkModeToggle">
@@ -41,11 +43,11 @@
     </nav>
 
     <!-- Title below Navbar -->
-    <br><h1 id="header">Omics-To-Therapy (OTT) Group</h1>
+    <br><h1 id="header" data-aos="fade-down">Omics-To-Therapy (OTT) Group</h1>
 
     <!-- Main Content -->
     <div class="content-container">
-        <div class="info">
+        <div class="info" data-aos="fade-right">
             <p>The Omics-To-Therapy (OTT) Group is dedicated to translating multi-omics discoveries into precision cancer therapies. We integrate genomics, transcriptomics, epigenomics, and proteomics with computational biology and drug discovery to bridge the gap between molecular insights and clinical applications.</p>
 
             <ul>
@@ -56,7 +58,7 @@
 
             <p>We are an integral part of Sri Shankara National Centre for Cancer Prevention and Research (SSNCCPR), under the Sri Shankara Cancer Foundation (SSCF), Bangalore.</p>
         </div>
-        <div class="right-panel">
+        <div class="right-panel" data-aos="fade-left">
             <div id="word-cloud-container">
                 <!-- Word cloud content -->
             </div>
@@ -64,79 +66,88 @@
     </div>
 
     <!-- Fundings Section -->
-    <div class="fundings-section mt-5">
-        <h2 id = "header">Fundings</h2><br>
+    <div class="fundings-section mt-5" data-aos="fade-up">
+        <h2 id="header">Fundings</h2><br>
         <div class="funding-images">
-            <div class="funding-image-placeholder">
-                <a href = "https://www.anrfonline.in/ANRF/HomePage"><img src="images/anrf1.png" alt="Funding 1" style="width: 105%; height: auto; border: 1px solid #ddd;"></a>
+            <div class="funding-image-placeholder" data-aos="fade-up" data-aos-delay="100">
+                <a href="https://www.anrfonline.in/ANRF/HomePage"><img src="images/anrf1.png" alt="Funding 1"></a>
             </div>
-            <div class="funding-image-placeholder">
-                <a href = "https://www.shankaracancerfoundation.org/"><img src="images/sscf_logo.png" alt="Funding 2" style="width: 98%; height: 100%; border: 1px solid #ddd;"></a>
+            <div class="funding-image-placeholder" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://www.shankaracancerfoundation.org/"><img src="images/sscf_logo.png" alt="Funding 2"></a>
             </div>
-            <div class="funding-image-placeholder">
-                <img src="images/megh_steels.png" alt="Funding 3" style="width: 100%; height: auto; border: 1px solid #ddd;">
+            <div class="funding-image-placeholder" data-aos="fade-up" data-aos-delay="300">
+                <img src="images/megh_steels.png" alt="Funding 3">
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-<div class="footer">
-    <div class="footer-left"></div> <!-- Empty for spacing balance -->
-    <div class="footer-center">
-        <p>&copy; 2025 Akki's Lab. All rights reserved.</p>
+    <div class="footer">
+        <div class="footer-left"></div> <!-- Empty for spacing balance -->
+        <div class="footer-center">
+            <p>&copy; 2025 Akki's Lab. All rights reserved.</p>
+        </div>
+        <div class="footer-right">
+            <p>Developed and maintained by Guruguhan & Rithika</p>
+        </div>
     </div>
-    <div class="footer-right">
-        <p>Developed and maintained by Guruguhan & Rithika</p>
-    </div>
-</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/TagCloud@2.2.0/dist/TagCloud.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Function to set the dark mode cookie
+        // AOS Initialization
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // Dark Mode Cookie Functions
         function setDarkModeCookie(value) {
-            document.cookie = "darkMode=" + value + "; path=/; max-age=31536000"; // cookie lasts for 1 year
+            document.cookie = "darkMode=" + value + "; path=/; max-age=31536000";
         }
 
-        // Function to get the dark mode cookie
         function getDarkModeCookie() {
             const cookieArr = document.cookie.split(';');
             for (let i = 0; i < cookieArr.length; i++) {
-                const cookie = cookieArr[i].trim();
+                let cookie = cookieArr[i].trim();
                 if (cookie.indexOf('darkMode=') === 0) {
                     return cookie.substring('darkMode='.length, cookie.length);
                 }
             }
-            return null; // Default is null if no cookie is found
+            return null;
         }
 
-        // Check if dark mode is enabled from the cookie on page load
-        window.addEventListener('DOMContentLoaded', (event) => {
-            const darkModePreference = getDarkModeCookie();
-            if (darkModePreference === 'true') {
-                document.body.classList.add('dark-mode');
-                document.getElementById('sunIcon').style.display = 'none';
-                document.getElementById('moonIcon').style.display = 'inline-block';
-            }
-        });
-
-        // Dark Mode Toggle Functionality
+        // Dark Mode Toggle Logic
         const darkModeToggle = document.getElementById('darkModeToggle');
         const sunIcon = document.getElementById('sunIcon');
         const moonIcon = document.getElementById('moonIcon');
 
-        darkModeToggle.addEventListener('click', function () {
-            document.body.classList.toggle('dark-mode');
-            const isDarkMode = document.body.classList.contains('dark-mode');
-            if (isDarkMode) {
+        function setDarkMode(isDark) {
+            if (isDark) {
+                document.body.classList.add('dark-mode');
                 sunIcon.style.display = 'none';
                 moonIcon.style.display = 'inline-block';
-                setDarkModeCookie('true');
             } else {
+                document.body.classList.remove('dark-mode');
                 sunIcon.style.display = 'inline-block';
                 moonIcon.style.display = 'none';
-                setDarkModeCookie('false');
             }
+        }
+
+        // Set initial dark mode state
+        const darkModePreference = getDarkModeCookie();
+        if (darkModePreference === 'true') {
+            setDarkMode(true);
+        }
+
+        // Listener for toggle
+        darkModeToggle.addEventListener('click', function () {
+            const isDarkMode = !document.body.classList.contains('dark-mode');
+            setDarkMode(isDarkMode);
+            setDarkModeCookie(isDarkMode.toString());
         });
 
         // Tag Cloud Setup

@@ -1,389 +1,240 @@
-/* Global Styles */
+
+/* Apple Color Palette & Global Styles */
 body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #a1c4fd, #c2e9fb); /* Soft Pastel Blue and Peach Gradient */
-    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    background-color: #FFFFFF;
+    color: #1d1d1f;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 body.dark-mode {
-    background: linear-gradient(135deg, #2c3e50, #34495e); /* Darker gradient for dark mode */
-    color: #f7f8fc;
+    background-color: #000000;
+    color: #e8e8ed;
 }
 
-/* Navbar */
+/* Modern Navbar - Apple Style */
 .navbar {
-    background-color: #343a40;
-    padding: 1rem 2rem; /* Increased padding for larger navbar */
+    background-color: rgba(245, 245, 247, 0.7);
+    padding: 0.8rem 1rem;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    margin: 10px 15px;
+    position: sticky;
+    top: 10px;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+
+body.dark-mode .navbar {
+    background-color: rgba(29, 29, 31, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .navbar-brand img {
-    width: 150px;
-    height: 60px;
+    width: 120px;
+    height: auto;
+    transition: transform 0.3s ease;
 }
 
-.navbar-brand {
-    font-weight: bold;
-    font-size: 1.6rem;
+.navbar-brand:hover img {
+    transform: scale(1.05);
 }
 
 .navbar-nav .nav-link {
-    color: #f8f9fa !important;
-    font-size: 1.1rem;
+    color: #1d1d1f !important;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 15px;
+    margin: 0 2px;
+}
+
+body.dark-mode .navbar-nav .nav-link {
+    color: #e8e8ed !important;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #f39c12 !important;
-    text-decoration: underline;
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #0071e3 !important;
 }
 
-/* Sun/Moon Toggle */
+body.dark-mode .navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #2997FF !important;
+}
+
+.navbar-nav .nav-link.active {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode .navbar-nav .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Dark Mode Toggle */
 .navbar .dark-mode-switch {
     display: flex;
     align-items: center;
     cursor: pointer;
     margin-top: 8px;
-    margin-left: 2px;
+    margin-left: 10px;
 }
 
 .dark-mode-switch i {
-    color: #f39c12;
-    font-size: 1.6rem;
+    color: #1d1d1f;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
 }
 
-/* Principal Investigator's (PI) Photo */
-.pi-photo {
+body.dark-mode .dark-mode-switch i {
+    color: #e8e8ed;
+}
+
+/* General Content Styling */
+h2, h3, h4 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 600;
+    color: #1d1d1f;
+}
+
+body.dark-mode h2, body.dark-mode h3, body.dark-mode h4 {
+    color: #e8e8ed;
+}
+
+/* PI Box */
+.pi-box {
+    background-color: #f5f5f7;
+    padding: 2rem;
+    border-radius: 20px;
+    margin: 3rem 0;
+}
+
+body.dark-mode .pi-box {
+    background-color: #121212;
+}
+
+.pi-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.pi-left, .pi-right {
+    flex: 1;
+    min-width: 300px;
 }
 
 .pi-photo .photo-box {
-    width: 250px;
-    height: 250px;
-    border-radius: 10px;
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-    position: relative;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
 }
 
 .pi-photo .photo-box img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    position: absolute;
-    top: 70px;
-    left: 0px;
-    transform: scale(1.5); /* Scale the image to "zoom in" */
-    transform-origin: center center; /* Ensure it scales from the center */
+    object-fit: cover;
 }
 
-/* Principal Investigator Box */
-.pi-box {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-bottom: 2rem;
-    margin-top: 3rem;
-}
-
-/* Dark mode styles for PI box */
-body.dark-mode .pi-box {
-    background-color: #34495e;
-    color: #f7f8fc;
-}
-
-/* Principal Investigator Container (Left and Right side layout) */
-.pi-container {
-    display: flex;
-    flex-wrap: wrap; /* Allows wrapping for smaller devices */
-    gap: 2rem; /* Space between the left and right sections */
-}
-
-/* Left Section - Photo and Bio */
-.pi-left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-top: -5rem;
-    margin-right: 1.5rem;
-}
-
-/* Right Section - Education and Experience */
-.pi-right {
-    margin-top: -2rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-/* Header inside PI box */
-.pi-box h3,h4 {
-    text-align: center;
-    font-family: 'Lora', serif;
-    font-weight: 700;
-}
-
-/* Text inside PI box */
-.pi-box p,
-.pi-box ul {
-    font-family: 'Roboto', sans-serif; /* Ensures the same font as the rest of the page */
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #555;
-    text-align: justify;
-}
-
-/* Dark mode text color in PI box */
-body.dark-mode .pi-box p,
-body.dark-mode .pi-box ul {
-    color: #f7f8fc; /* Ensure text is white in dark mode */
-}
-
-/* Education and Experience Lists */
-.pi-box ul {
-    margin-left: 0.5rem;
-}
-
-/* Honors and Awards Styling */
-.pi-box h4 {
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin-top: 2rem;
-    text-align: justify;
-}
-
-.pi-box li {
-    margin-bottom: 0.5rem;
-}
-
-/* Profile Grid Layout */
-.profile-grid {
+/* Profile Grid */
+.profile-grid, .alumni-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* change the 220px value here to change the no. of profile cards in a single line */
-    gap: 1rem;
-    margin: 0.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
 }
 
-/* Profile Card */
 .profile-card {
-    background: #fff;
-    border-radius: 12px;
+    background: #f5f5f7;
+    border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
     text-align: center;
-    padding: 1.0rem;
-    height: auto;
-    display: flex;
-    flex-direction: column;
+    padding: 1.5rem;
 }
 
 .profile-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
-/* Dark Mode for Profile Cards */
 body.dark-mode .profile-card {
-    background: #34495e;
-    color: #f7f8fc;
+    background: #121212;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Profile Card Text */
-body.dark-mode .profile-card .info h2,
-body.dark-mode .profile-card .info p {
-    color: #f7f8fc; /* Light text color in dark mode */
-}
-
-/* Photo */
-.photo {
-    width: 150px;
-    height: 150px;
-    background-color: #e0e0e0;
+.profile-card .photo {
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 1.5rem;
-    margin: 0 auto 1.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 0 auto 1rem;
     overflow: hidden;
 }
 
-.photo img {
+.profile-card .photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 50%;
 }
 
-/* Info Section */
-.info {
-    flex-grow: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.profile-card .info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
-.info h2 {
-    font-size: 1.8rem;
-    color: #333;
+.profile-card .info p {
+    font-size: 1rem;
+    color: #6e6e73;
     margin-bottom: 1rem;
-    font-weight: 700;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
-.info p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 0.2rem;
-    color: #555;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
+body.dark-mode .profile-card .info p {
+    color: #86868b;
 }
 
-/* LinkedIn Icon */
 .linkedin-icon {
-    font-size: 1.8rem;
-    color: #0e76a8;
+    font-size: 1.5rem;
+    color: #0071e3;
     transition: color 0.3s;
 }
 
 .linkedin-icon:hover {
-    color: #00a6ff;
+    color: #0077ed;
 }
 
 body.dark-mode .linkedin-icon {
-    color: #1da1f2;
-}
-
-body.dark-mode .linkedin-icon:hover {
-    color: #66ccff;
+    color: #2997FF;
 }
 
 /* Footer */
 .footer {
-    background-color: #343a40;
-    color: white;
+    background-color: #f5f5f7;
+    color: #6e6e73;
     padding: 20px;
-    margin-top: 2rem;
-
+    margin-top: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    text-align: center; /* Ensures center alignment in the middle section */
-    flex-wrap: wrap; /* Allows stacking on small screens */
-}
-
-.footer-left,
-.footer-center,
-.footer-right {
-    flex: 1;
-}
-
-.footer-center {
     text-align: center;
+    font-size: 0.9rem;
 }
 
-.footer-right {
-    text-align: right;
+body.dark-mode .footer {
+    background-color: #121212;
+    color: #86868b;
 }
 
 .footer p {
     margin: 0;
-}
-
-.logo-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.logo-container img {
-    width: 120px;
-    height: auto;
-}
-
-/* Alumni Card Specific Styling */
-.profile-card-alumni {
-    width: 300px;
-    padding: 0.8rem;
-    font-size: 0.95rem;
-    align-self: center;
-}
-
-/* Optional: Alumni grid for consistent layout */
-.alumni-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem;
-}
-
-/* Dark Mode for Alumni Cards */
-body.dark-mode .profile-card-alumni {
-    background: #34495e;
-    color: #f7f8fc;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .pi-left {
-        margin-top: -1.8rem;
-    }
-
-    .profile-card {
-        padding: 0.5rem;
-        height: auto;
-        width: 75%;
-    }
-
-    .profile-grid {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Center horizontally */
-        justify-content: center; /* Center vertically if needed */
-        gap: 2rem;
-    }
-
-    .photo {
-        width: 130px;
-        height: 130px;
-    }
-
-    .info h2 {
-        font-size: 1.6rem;
-    }
-
-    .info p {
-        font-size: 1rem;
-    }
-}
-
-/* Section Headings */
-h2 {
-    font-family: 'Lora', serif;
-    font-weight: 700;
-    font-size: 2.4rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #333;
-}
-
-body.dark-mode h2 {
-    color: #f7f8fc; /* Light text color in dark mode */
 }
