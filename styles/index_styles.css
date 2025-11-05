@@ -70,6 +70,8 @@ body.dark-mode .lab-name {
     padding: 8px 16px;
     border-radius: 15px;
     margin: 0 2px;
+    display: flex; /* Vertically align content */
+    align-items: center; /* Vertically align content */
 }
 
 body.dark-mode .navbar-nav .nav-link {
@@ -304,7 +306,6 @@ body.dark-mode .footer p {
   height: 30px !important;
   position: relative;
   display: inline-block;
-  margin-top: 5px; /* Adjusted for vertical alignment */
 }
 
 .dark-mode-switch input {
