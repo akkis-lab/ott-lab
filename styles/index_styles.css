@@ -300,8 +300,8 @@ body.dark-mode .footer p {
 }
 
 .dark-mode-switch {
-  width: 60px;
-  height: 30px;
+  width: 60px !important;
+  height: 30px !important;
   position: relative;
   display: inline-block;
   margin-top: 5px; /* Adjusted for vertical alignment */
