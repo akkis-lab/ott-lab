@@ -51,7 +51,7 @@ body.dark-mode .navbar {
 
 .lab-name {
     font-size: 1.2rem; /* Adjust as needed */
-    font-weight: 500;
+    font-weight: 600;
     color: #1d1d1f; /* Default color */
     margin-left: 10px; /* Space from logos */
     margin-right: auto; /* Push to the left */
@@ -70,6 +70,8 @@ body.dark-mode .lab-name {
     padding: 8px 16px;
     border-radius: 15px;
     margin: 0 2px;
+    display: flex; /* Vertically align content */
+    align-items: center; /* Vertically align content */
 }
 
 body.dark-mode .navbar-nav .nav-link {
@@ -300,8 +302,8 @@ body.dark-mode .footer p {
 }
 
 .dark-mode-switch {
-  width: 60px;
-  height: 30px;
+  width: 60px !important;
+  height: 30px !important;
   position: relative;
   display: inline-block;
   margin-top: 5px; /* Adjusted for vertical alignment */
