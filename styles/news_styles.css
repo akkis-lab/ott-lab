@@ -30,6 +30,8 @@ body.dark-mode {
     top: 10px;
     z-index: 1000;
     transition: all 0.3s ease-in-out;
+    display: flex; /* Ensure flex container */
+    align-items: center; /* Vertically align items */
 }
 
 body.dark-mode .navbar {
@@ -45,6 +47,19 @@ body.dark-mode .navbar {
 
 .navbar-brand:hover img {
     transform: scale(1.05);
+}
+
+.lab-name {
+    font-size: 1.2rem; /* Adjust as needed */
+    font-weight: 500;
+    color: #1d1d1f; /* Default color */
+    margin-left: 10px; /* Space from logos */
+    margin-right: auto; /* Push to the left */
+    vertical-align: middle; /* Align with images */
+}
+
+body.dark-mode .lab-name {
+    color: #e8e8ed; /* Dark mode color */
 }
 
 .navbar-nav .nav-link {

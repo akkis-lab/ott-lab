@@ -30,6 +30,8 @@ body.dark-mode {
     top: 10px;
     z-index: 1000;
     transition: all 0.3s ease-in-out;
+    display: flex; /* Ensure flex container */
+    align-items: center; /* Vertically align items */
 }
 
 body.dark-mode .navbar {
@@ -45,6 +47,19 @@ body.dark-mode .navbar {
 
 .navbar-brand:hover img {
     transform: scale(1.05);
+}
+
+.lab-name {
+    font-size: 1.2rem; /* Adjust as needed */
+    font-weight: 600;
+    color: #1d1d1f; /* Default color */
+    margin-left: 10px; /* Space from logos */
+    margin-right: auto; /* Push to the left */
+    vertical-align: middle; /* Align with images */
+}
+
+body.dark-mode .lab-name {
+    color: #e8e8ed; /* Dark mode color */
 }
 
 .navbar-nav .nav-link {
@@ -96,38 +111,29 @@ body.dark-mode #header, body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 
     line-height: 1.1;
 }
 
-.header-container {
-    max-width: 1400px;
-    margin: 1rem auto;
+/* Lab Description Section Styling */
+.lab-description-section {
+    margin-bottom: 3rem; /* Space below this section */
     padding: 2rem;
     background-color: #f5f5f7;
     border: 1px solid #e0e0e0;
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    max-width: 90%; /* Set max-width */
+    margin: 0 auto 3rem auto; /* Center it and maintain bottom margin */
 }
 
-body.dark-mode .header-container {
+body.dark-mode .lab-description-section {
     background-color: #1c1c1e;
     border-color: #333333;
 }
 
-.content-container {
-    flex: 1;
-    display: flex;
-    justify-content: space-between;
-    max-width: 1400px;
-    margin: 3rem auto;
-    padding: 3rem;
-    gap: 3rem;
-    background-color: #f5f5f7;
-    border: 1px solid #e0e0e0;
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+.lab-description-section #header {
+    margin-bottom: 2rem;
 }
 
-body.dark-mode .content-container {
-    background-color: #1c1c1e;
-    border-color: #333333;
+.lab-description-section .info {
+    margin-bottom: 2rem;
 }
 
 .info p, .info ul li {
@@ -159,6 +165,8 @@ body.dark-mode .info ul li::before {
 #word-cloud-container {
     flex: none; /* Reset flex property */
     margin: 1rem auto; /* Center horizontally */
+    width: 400px;
+    height: 400px;
 }
 
 /* Fundings Section */
@@ -260,13 +268,6 @@ body.dark-mode .footer p {
 }
 @media (max-width: 768px) {
     #header { font-size: 2.5rem; }
-    .content-container {
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem;
-        gap: 2rem;
-        text-align: center;
-    }
     .info {
         text-align: center;
     }
@@ -274,11 +275,17 @@ body.dark-mode .footer p {
         list-style-position: inside;
         padding-left: 0;
     }
-    #word-cloud-container { 
-        width: 300px; 
-        height: 300px; 
-        margin-top: 1rem; 
+    #word-cloud-container {
+        width: 300px;
+        height: 300px;
+        margin-top: 1rem;
         flex: none; /* Reset flex property */
+    }
+    #fullWidthCarousel .carousel-item img {
+        height: 300px; /* Adjust height for mobile */
+    }
+    .lab-description-section {
+        padding: 1rem; /* Adjust padding for mobile */
     }
     .fundings-section h2 {
         font-size: 2rem;
@@ -483,4 +490,46 @@ body.dark-mode .collaborator-card p {
 
 body.dark-mode .collaborator-card img {
     background-color: #f5f5f7; /* Light background for logos in dark mode */
+}
+
+/* Full-width Carousel */
+#fullWidthCarousel {
+    height: 70vh; /* Adjust as needed */
+    overflow: hidden;
+}
+
+#fullWidthCarousel .carousel-inner,
+#fullWidthCarousel .carousel-item {
+    height: 100%;
+}
+
+#fullWidthCarousel .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Carousel Caption */
+#carousel-captions {
+    background-color: #f5f5f7;
+    padding: 1rem 2rem; /* Reduced vertical padding */
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    max-width: 90%; /* Set max-width */
+    margin: 0 auto 2rem auto; /* Center it and maintain bottom margin */
+}
+
+body.dark-mode #carousel-captions {
+    background-color: #1c1c1e;
+    border-color: #333333;
+}
+
+.carousel-caption-item {
+    display: none;
+}
+
+.carousel-caption-item.active {
+    display: block;
 }
