@@ -57,13 +57,22 @@
     <div id="fullWidthCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="images/carousel_images/Fig 3.png" class="d-block w-100" alt="mf_surv_plot">
+                <img src="images/carousel_images/nrf2_pathway.jpeg" class="d-block w-100" alt="nrf2_pathway">
             </div>
             <div class="carousel-item">
-                <img src="images/carousel_images/Fig 4.png" class="d-block w-100" alt="mut_landscape">
+                <img src="images/carousel_images/nrf2_fate.jpeg" class="d-block w-100" alt="nrf2_fate">
             </div>
             <div class="carousel-item">
-                <img src="images/carousel_images/Fig 6.png" class="d-block w-100" alt="CNA_chrm_loc">
+                <img src="images/carousel_images/Fig 4.png" class="d-block w-100" alt="sex_topMuts">
+            </div>
+            <div class="carousel-item">
+                <img src="images/carousel_images/sex_mutations.png" class="d-block w-100" alt="sex_mutOdds">
+            </div>
+            <div class="carousel-item">
+                <img src="images/carousel_images/Fig 6.png" class="d-block w-100" alt="CNA_sex">
+            </div>
+            <div class="carousel-item">
+                <img src="images/carousel_images/Fig 3.png" class="d-block w-100" alt="sex_OS">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#fullWidthCarousel" data-bs-slide="prev">
@@ -77,16 +86,28 @@
     </div>
     <div id="carousel-captions">
         <div class="carousel-caption-item active">
-            <h5>Survival Analysis of Nrf2 Mutations</h5>
-            <p>Kaplan-Meier survival curves for patients with and without Nrf2 pathway mutations, demonstrating the clinical impact of these genetic alterations.</p>
+            <h5>NRF2 signaling pathway</h5>
+            <p>Under basal condition, KEAP1 controlled NRF2 undergoes Cul3 mediated ubiquitination, leading to the proteosomal degradation of NRF2. Under oxidative stress, the NRF2 dissociates from KEAP1 and enters the nucleus where it heterodimerises with the sMaf proteins and regulates the ARE driven gene expression.</p>
         </div>
         <div class="carousel-caption-item">
-            <h5>Mutational Landscape of Nrf2 Pathway</h5>
-            <p>The plot illustrates the frequency of mutations in Nrf2 pathway genes across various cancer types, highlighting the pathway's broad relevance in oncology.</p>
+            <h5>Fate of NRF2 in normal cells and cancer cells.</h5>
+            <p>Loss of KEAP1 function leads to defective activation of the NRF2 signaling pathway in NSCLC cells, resulting in resistance to chemotherapeutic agents.</p>
         </div>
         <div class="carousel-caption-item">
-            <h5>Genomic Locations of Copy Number Alterations</h5>
-            <p>A circular plot showing the chromosomal locations of genes with copy number alterations (CNAs) in the Nrf2 pathway, offering insights into the genomic basis of pathway dysregulation.</p>
+            <h5>Comparative landscape of top mutated genes across global pan-cancer cohorts.</h5>
+            <p>Bar plots illustrate the most frequently mutated genes in (a) TCGA, (b) MSK MetTropism, and (c) China pan-cancer cohorts. Sex-stratified frequency of top recurrently mutated genes in the (d) TCGA, (e)MSK MetTropism, and (f) China pan-cancer cohorts. Each color denotes the type of mutation, including missense, nonsense, splice site, frame-shift, and in-frame alterations. Bars indicate the percentage of male (green, left) and female (red, right) patients harboring mutations in each gene, with mutation type distribution shown in color.</p>
+        </div>
+        <div class="carousel-caption-item">
+            <h5>Sex-associated somatic mutation odds ratios across pan-cancer cohorts.</h5>
+            <p>This figure presents forest plots illustrating the odds ratios (OR) and 95% confidence intervals (CI) for the frequency of somatic mutations in selected genes (with >200 mutations and top 10 both sexes), comparing female versus male patients for the (a) TCGA pan-cancer cohort, (b) MSK MetTropism pan-cancer cohort, and (c) China pan-cancer cohort. Each row represents a specific gene. The black dot indicates the calculated odds ratio, and the horizontal line represents the 95% confidence interval.</p>
+        </div>
+        <div class="carousel-caption-item">
+            <h5>Overview of Somatic copy number alterations (CNAs) in Pan-Cancer cohorts.</h5>
+            <p>Chromosomal ideograms depicting recurrent somatic copy number alterations identified in three independent cohorts: (a) TCGA pan-cancer cohort, (b) MSK MetTropism cohort, and (c) Chinese pan-cancer cohort. Blue marks indicate regions of recurrent oncogene amplification, while red marks indicate tumor suppressor deletions.</p>
+        </div>
+        <div class="carousel-caption-item">
+            <h5>Sex-associated overall survival (OS) in TCGA and MSK MetTropism cancer subtypes</h5>
+            <p>Kaplan–Meier survival curves (a-i) comparing OS between female (pink) and male (blue) patients across TCGA and MSK Cancer MSK MetTropism subtypes.</p>
         </div>
     </div>
 

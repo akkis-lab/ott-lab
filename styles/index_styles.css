@@ -451,3 +451,22 @@ body:not(.dark-mode) .carousel-control-prev-icon,
 body:not(.dark-mode) .carousel-control-next-icon {
     filter: invert(1);
 }
+
+/* Hide carousel controls by default and show on hover */
+#fullWidthCarousel .carousel-control-prev,
+#fullWidthCarousel .carousel-control-next {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+#fullWidthCarousel:hover .carousel-control-prev,
+#fullWidthCarousel:hover .carousel-control-next {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.dark-mode .carousel-control-prev-icon,
+body.dark-mode .carousel-control-next-icon {
+    filter: invert(1); /* Make arrows white in dark mode */
+}
