@@ -468,5 +468,5 @@ body:not(.dark-mode) .carousel-control-next-icon {
 
 body.dark-mode .carousel-control-prev-icon,
 body.dark-mode .carousel-control-next-icon {
-    filter: invert(1); /* Make arrows white in dark mode */
+    filter: invert(0); /* Make arrows black in dark mode */
 }
