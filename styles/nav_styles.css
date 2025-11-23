@@ -88,7 +88,13 @@ body.dark-mode .navbar-nav .nav-link.active {
 }
 
 .navbar-toggler {
-    border-color: rgba(0,0,0,.1);
+    border: none;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    outline: 0;
+    box-shadow: none;
 }
 
 .navbar-toggler-icon {
@@ -96,7 +102,7 @@ body.dark-mode .navbar-nav .nav-link.active {
 }
 
 body.dark-mode .navbar-toggler {
-    border-color: rgba(255,255,255,.1);
+    border: none;
 }
 
 body.dark-mode .navbar-toggler-icon {
