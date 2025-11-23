@@ -132,3 +132,61 @@ body.dark-mode .navbar-toggler-icon {
         width: 100%;
     }
 }
+
+@media (max-width: 404px) {
+    .navbar {
+        padding: 0.5rem 0.7rem;
+        margin: 10px 5px;
+        border-radius: 20px;
+        flex-wrap: wrap; /* Allow items to wrap */
+        justify-content: space-between; /* Space out brand and toggler */
+    }
+
+    .navbar-brand {
+        margin-right: 0.5rem;
+    }
+
+    .navbar-brand img {
+        height: 40px; /* Further reduce logo size */
+    }
+
+    .lab-name {
+        font-size: 0.9rem; /* Smaller font size for lab name */
+        white-space: normal; /* Allow text to wrap */
+        flex-grow: 0; /* Don't let it take up too much space */
+        margin: 0 0.5rem;
+    }
+
+    .navbar-toggler {
+        padding: 0.25rem 0.5rem; /* Adjust toggler padding */
+    }
+
+    .navbar-toggler-icon {
+        width: 1.2em;
+        height: 1.2em;
+    }
+
+    .dark-mode-switch {
+        margin-left: 0; /* Remove left margin for better fit */
+        margin-top: 10px; /* Add some top margin if it wraps */
+        width: 50px !important; /* Adjust switch size */
+        height: 25px !important;
+    }
+
+    .dark-mode-switch .slider {
+        border-radius: 25px;
+    }
+
+    .dark-mode-switch .ball {
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+    }
+
+    input:checked + .slider .ball {
+        -webkit-transform: translateX(25px);
+        -ms-transform: translateX(25px);
+        transform: translateX(25px);
+    }
+}

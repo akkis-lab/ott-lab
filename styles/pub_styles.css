@@ -41,6 +41,8 @@ body.dark-mode {
     margin-bottom: 1.5rem;
     padding-left: 1.5rem;
     position: relative;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .info ul li::before {
@@ -70,6 +72,8 @@ body.dark-mode .info ul li::before {
     color: #0071e3;
     text-decoration: none;
     transition: color 0.3s;
+    max-width: 100%;
+    display: inline-block;
 }
 
 .info ul li a:hover {
