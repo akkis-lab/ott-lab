@@ -84,57 +84,42 @@ body.dark-mode .info ul li::before {
     color: #2997FF;
 }
 
-.central-logo {
-
-    position: absolute;
-
-    width: 100px; /* Adjust as needed */
-
-    height: auto;
-
-    z-index: 10;
-
-    top: 50%;
-
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-
-}
-
-
-
 .word-cloud-wrapper {
-
     flex: 1;
-
     position: relative;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     min-height: 200px; /* Minimum height for word cloud */
-
 }
-
-
 
 #word-cloud-container {
-
     width: 100%;
-
     height: 100%;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
 }
+
+.tagcloud--item {
+    pointer-events: none;
+}
+
+.tagcloud--item:first-child {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    animation: none !important;
+    color: transparent !important;
+    opacity: 1 !important;
+}
+
+.word-cloud-logo {
+    width: 100px;
+    height: auto;
+}
+
 
 
 /* Fundings Section */
