@@ -185,6 +185,60 @@ input:checked + .slider .ball .fa-moon {
   display: none;
 }
 
+/* Sidebar Styles */
+.sidebar {
+    position: sticky;
+    top: 250px; /* Adjust based on navbar height */
+    left: 20px;
+    width: 200px;
+    float: left;
+    margin-right: 20px;
+    z-index: 1000;
+}
+
+.sidebar .nav-link {
+    color: #6e6e73;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+}
+
+.sidebar .nav-link.active {
+    background-color: #007aff;
+    color: #fff;
+    font-weight: 500;
+}
+
+body.dark-mode .sidebar .nav-link {
+    color: #86868b;
+}
+
+body.dark-mode .sidebar .nav-link:hover {
+    background-color: #1c1c1e;
+    color: #e8e8ed;
+}
+
+body.dark-mode .sidebar .nav-link.active {
+    background-color: #8ab4f8;
+    color: #000;
+}
+
+/* Adjust main content to accommodate sidebar */
+.news-container {
+    position: relative;
+}
+
+.news-container > h1,
+.news-container > .year-separator,
+.news-container > .row {
+    margin-left: 240px; /* sidebar width + some margin */
+}
+
 /* News Box Styling */
 .news-container {
     padding-top: 20px;
@@ -204,6 +258,7 @@ input:checked + .slider .ball .fa-moon {
     font-size: 1.8rem;
     font-weight: 600;
     color: #1d1d1f;
+    scroll-margin-top: 120px;
 }
 
 .year-separator::before,
@@ -357,7 +412,33 @@ body.dark-mode .news-box .read-more:hover {
 }
 
 /* Responsive Adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1199.98px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        float: none;
+        margin: 0 0 1.5rem 0;
+        top: auto;
+        left: auto;
+        z-index: auto;
+    }
+
+    .sidebar .nav {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .sidebar .nav-item {
+        margin: 0 5px;
+    }
+
+    .news-container > h1,
+    .news-container > .year-separator,
+    .news-container > .row {
+        margin-left: 0;
+    }
+
     .news-image-frame {
         height: 200px; /* Adjusted height for medium screens */
     }
